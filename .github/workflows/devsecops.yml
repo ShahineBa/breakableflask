@@ -1,7 +1,7 @@
 name: Automatisation des tests DevSecOps
 on: push
 jobs:
-    Dependances:
+  Dependances:
     runs-on: ubuntu-latest
     steps:
       - name: Récupération du code
