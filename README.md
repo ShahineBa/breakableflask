@@ -1,3 +1,25 @@
+# Breakable Flask – Pipeline DevSecOps
+
+> Fork d'une application Flask volontairement vulnérable (atelier EFREI), que j'ai sécurisée avec une chaîne CI/CD DevSecOps.
+
+## Mon travail
+
+### Pipeline GitHub Actions (`.github/workflows/devsecops.yml`)
+Trois étapes enchaînées, chacune bloquante :
+1. **Scan des dépendances** : Trivy analyse `requirements.txt` et fait échouer le pipeline en cas de vulnérabilité HIGH ou CRITICAL.
+2. **Scan du Dockerfile** : Trivy vérifie la configuration (mauvaises pratiques, erreurs de config).
+3. **Déploiement** : ne se lance que si les deux scans passent.
+
+### Dockerfile durci
+- Image légère `python:slim` pour réduire la surface d'attaque
+- Exécution avec un utilisateur **non-root** (`appuser`)
+- Dépendances installées avant le code, pour optimiser le cache
+- **Healthcheck** pour surveiller l'état de l'application
+
+**Technos :** GitHub Actions · Trivy · Docker · Python/Flask
+
+---
+*Projet d'origine ci-dessous.*
 # Breakable Flask
 
 
