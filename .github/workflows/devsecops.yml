@@ -7,7 +7,7 @@ jobs:
       - name: Récupération du code
         uses: actions/checkout@v4
       - name: Scan des dépendances avec Trivy
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: 'fs'
           scan-ref: 'requirements.txt'
@@ -20,7 +20,7 @@ jobs:
       - name: Récupération du code
         uses: actions/checkout@v4
       - name: Scan du Dockerfile avec Trivy
-        uses: aquasecurity/trivy-action@master
+        uses: aquasecurity/trivy-action@v0.36.0
         with:
           scan-type: 'config'
           scan-ref: '.'
